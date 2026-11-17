@@ -12,6 +12,7 @@ export default function RecipeCard({
     <article className="recipe-card">
       <div className="recipe-art">
         <span className="recipe-number">{String(index + 1).padStart(2, "0")}</span>
+        <span className="recipe-emoji" aria-hidden="true">{recipe.emoji}</span>
         <Image
           className="recipe-image"
           src={recipe.image}
