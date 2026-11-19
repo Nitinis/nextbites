@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
 
+const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const basePath =
+  process.env.GITHUB_ACTIONS === "true" && repositoryName
+    ? `/${repositoryName}`
+    : undefined;
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  output: "export",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  ...(basePath ? { basePath } : {}),
   turbopack: {
     rules: {
       "*.css": {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RecipeCard from "./components/RecipeCard";
+import RecipeCollection from "./components/RecipeCollection";
 import { recipes } from "./data/recipes";
 
 export default function Home() {
@@ -43,11 +43,7 @@ export default function Home() {
           </div>
           <p className="section-intro">Reliable favorites and new little obsessions.<br />Pick one and make it yours.</p>
         </div>
-        <div className="recipe-grid">
-          {recipes.map((recipe, index) => (
-            <RecipeCard key={recipe.id} recipe={recipe} index={index} />
-          ))}
-        </div>
+        <RecipeCollection recipes={recipes} />
       </section>
 
       <footer className="site-footer" id="about">
